@@ -1,4 +1,5 @@
-# stommeschool
+# school-opdrachten
+
 Welkom op mijn GitHub-repository! Deze repository is bedoeld om al mijn schoolopdrachten en gerelateerde projecten te bewaren. Hier vind je al mijn werk, gestructureerd per vak of opdracht, zodat ik alles op één plek kan houden en het makkelijk kan delen.
 
 Wat kun je hier vinden?
