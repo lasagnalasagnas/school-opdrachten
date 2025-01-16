@@ -16,23 +16,29 @@
             document.write(a + ", " + b);
         }
 
+       
+
         f1(1); // Uitvoer: 11, 12, 11
         document.write("<br />");
 
         f2(8); // Uitvoer: 13, 8
         document.write("<br />");
 
-        //Welke functie met welke parameter moet ik aanroepen om het volgende antwoord te krijgen:
-        // Uitvoer: 12, 0
+        f2(0);  // Uitvoer: 11, 0
+        document.write("<br />");
 
-        //Welke functie met welke parameter moet ik aanroepen om het volgende antwoord te krijgen:
-        // Uitvoer: 12, 14, 24
+        a = 12;
+        f1(2); // Uitvoer: 12, 14, 26
+        document.write("<br />");
 
-        //Welke functie met welke parameter moet ik aanroepen om het volgende antwoord te krijgen:
-        // Uitvoer: 13, 16, 39
+        a = 13;
+        f1(3) // Uitvoer: 13, 16, 29
+        document.write("<br />");
 
-        //Welke functie met welke parameter moet ik aanroepen om het volgende antwoord te krijgen:
-        // Uitvoer: 14, 7
+        a = 14;
+        f2(7);
+        document.write("<br />");   // Uitvoer: 14, 7
+
     </script>
 </head>
 <body>
