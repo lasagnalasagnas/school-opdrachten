@@ -1,5 +1,5 @@
 let myVariable = 1;
-let myVariable = function(a,b){
+let myFunction = function(a,b){
     return a+b;
 }
-console.log(myVar(1,2));
+console.log(myFunction(1,2));
