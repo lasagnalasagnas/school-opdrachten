@@ -9,22 +9,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateRightSection(imageContainer) {
-    // Retrieve data from the clicked image container
     let title = imageContainer.getAttribute('data-title');
-    let subtitle = imageContainer.getAttribute('data-subtitle'); // Not used here, but can be if needed
+    let subtitle = imageContainer.getAttribute('data-subtitle');
     let description = imageContainer.getAttribute('data-description');
-    let trailerUrl = imageContainer.getAttribute('data-trailer');
+    let trailerUrl = imageContainer.getAttribute('data-trailer'); // Get the trailer URL
 
-    // Update the right section with the new movie info
+    // Update the text content in the right section
     let rightTitleElement = document.querySelector('.right-section .box-title');
     let rightSubtitleElement = document.querySelector('.right-section .box-subtitle');
     let rightDescriptionElement = document.querySelector('.right-section .box-description');
-
+    
     rightTitleElement.textContent = title;
-    rightSubtitleElement.textContent = subtitle || "";  // You can decide if subtitle is optional
+    rightSubtitleElement.textContent = subtitle || "";  // Optional subtitle
     rightDescriptionElement.textContent = description;
 
-    // Update the video iframe with the new trailer URL
-    let videoPlayer = document.getElementById('video-player');
-    videoPlayer.src = trailerUrl + "?autoplay=1"; // Adds autoplay functionality if needed
+    // Get the iframe element (the video player)
+    let videoPlayer = document.querySelector('.right-section iframe');
+    
+    // Check if trailerUrl exists and is valid
+    if (trailerUrl) {
+        videoPlayer.src = trailerUrl + "?autoplay=1"; // Add autoplay parameter to start video immediately
+    } else {
+        console.error("Invalid video URL or format");
+    }
 }
