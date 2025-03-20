@@ -1,0 +1,119 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    height: 100vh;
+}
+
+.right-section {
+    background-color: #F5F3EE;
+    flex: 1; /* Allow this section to grow */
+    display: flex;
+    flex-direction: column; /* Arrange video content vertically */
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    box-sizing: border-box;
+    padding-bottom: 120px;
+    width: 100%;
+}
+
+.left-section {
+    background-color: #80aaff;
+    flex: 1; /* Allow this section to grow */
+    display: flex;
+    flex-direction: row; /* Display images horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    align-items: center; /* Center align images vertically */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: 200px; /* Control the width of each image container */
+}
+
+.box-title-left {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.border-box {
+    width: 180px;
+    height: 120px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.box-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.white-box {
+    width: 180px;
+    height: 120px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.box-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 70px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+    text-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.box-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    color: Black;
+    margin-top: 5px;
+    text-align: center;
+    text-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.box-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    color: black;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.6;
+    text-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+}
+
+.split {
+    width: 10px;
+    background-color: #000;
+}

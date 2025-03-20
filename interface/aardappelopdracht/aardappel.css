@@ -1,0 +1,390 @@
+@import "compass/css3";
+
+$n: 5; // has to match number of DOM nodes
+
+@font-face {
+  font-family: 'LBPfont';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/133687/eigerdals-heavy-webfont.ttf') format('truetype');
+}
+
+@mixin center($width, $height){
+  width: $width;
+  height: $height;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -$width / 2;
+  margin-top: -$height / 2;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  background: radial-gradient(ellipse at center, rgba(18,157,150,1) 0%,rgba(18,157,150,1) 10%,rgba(25,84,144,1) 100%);
+  overflow: hidden;
+}
+
+#overflow {
+overflow: hidden;
+border-radius: 50%;
+width: 165px;
+height: 165px;
+// mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFW…9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+#container, #spaceship{
+  transform: rotate(45deg);
+}
+
+#spaceship{
+  position: relative;
+  z-index: 5;
+}
+
+#LBP {
+  height: 400px;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  position: absolute;
+  top: 50%;
+  width: 400px;
+}
+
+/***** TEXT AND BORDER *****/
+
+#loading {
+  height: 400px;
+  position: absolute;
+  width: 400px;
+  animation: spinLoading 6s linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+  
+h1 {
+  left: 50%;
+  margin-left: -52px;
+  margin-top: -15px;
+  position: absolute;
+  top: 20%;
+  color: white;
+  span {
+    font: 18px 'LBPfont', MonoSpace;
+    padding: 0 1px;
+  }
+}
+
+.h1-2 {
+  margin-top: -7.5px;
+  top: 80%;
+  transform: rotate(180deg);
+}
+
+#border{
+  @include center(200px, 200px);
+  animation: borderSpin linear infinite 6s;
+  .square{
+    width: 150px;
+    height: 150px;
+    background: #9fc317;
+    position: absolute;
+    border-radius: 5px;
+    top: 50%; left: 50%;
+    margin-left: -75px; margin-top: -75px;
+    @for $i from 0 to $n {
+      &:nth-child(#{$i + 1}) {
+        transform: rotate($i*360deg/$n);
+      }
+    }  
+  }
+}
+
+/***** CONTAINER *****/
+
+#container{
+  @include center(165px, 165px);
+  background-image: repeating-linear-gradient(to bottom,rgb(22, 22, 22) 0px,rgb(22, 22, 22) 8px,rgb(50, 50, 50) 8px,rgb(50, 50, 50) 10px);
+  overflow: hidden;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#smoke1{
+  animation: 4s linear 0s normal none infinite running circleRotate1;
+  height: 59px;
+  left: 35px;
+  position: absolute;
+  top: 125px;
+  transform-origin: 50% 50% 0;
+  width: 56px;
+  .circle {
+    background: none repeat scroll 0 0 #2066c6;
+    border-radius: 50%;
+    height: 30px;
+    left: 12px;
+    position: absolute;
+    top: 15px;
+    width: 30px;
+    @for $i from 0 to $n {
+      &:nth-child(#{$i + 1}) {
+        transform: rotate($i*360deg/$n) translate(0.9em);
+      }
+    }
+  } 
+}
+
+#smoke2{
+  animation: 4s linear 0s normal none infinite running circleRotate2;
+  height: 59px;
+  left: 75px;
+  position: absolute;
+  top: 125px;
+  transform-origin: 50% 50% 0;
+  width: 56px;
+  .circle {
+    background: none repeat scroll 0 0 #2066c6;
+    border-radius: 50%;
+    height: 30px;
+    left: 12px;
+    position: absolute;
+    top: 15px;
+    width: 30px;
+    @for $i from 0 to $n {
+      &:nth-child(#{$i + 1}) {
+        transform: rotate($i*360deg/$n) translate(0.9em);
+      }
+    }
+  } 
+}
+
+.star1{
+    animation: 4s linear 0s normal none infinite running moveStar;
+    animation-delay: 0.25s;
+    color: white;
+    left: 30px;
+    opacity: 0.7;
+    position: relative;
+    top: -15px;
+}
+
+.star2{
+    animation: 20s linear 0s normal none infinite running moveStar;
+    color: white;
+    left: 80px;
+    opacity: 0.3;
+    position: relative;
+    top: -15px;
+    font-size: 5px;
+}
+
+.star3{
+    animation: 10s linear 0s normal none infinite running moveStar;
+    animation-delay: 0.7s;
+    color: white;
+    left: 100px;
+    opacity: 0.5;
+    position: relative;
+    top: -15px;
+    font-size: 8px;
+}
+
+.star4{
+    animation: 7s linear 0s normal none infinite running moveStar;
+    animation-delay: 1s;
+    color: white;
+    left: 20px;
+    opacity: 0.6;
+    position: relative;
+    top: -15px;
+    font-size: 9px;
+}
+
+.star5{
+    animation: 20s linear 0s normal none infinite running moveStar;
+    animation-delay: 1s;
+    color: white;
+    left: -30px;
+    opacity: 0.3;
+    position: relative;
+    top: -15px;
+    font-size: 5px;
+}
+
+.star6{
+    animation: 5s linear 0s normal none infinite running moveStar;
+    animation-delay: 0.55s;
+    color: white;
+    left: 80px;
+    opacity: 0.7;
+    position: relative;
+    top: -15px;
+}
+
+/***** ROCKET *****/
+
+#animateRocket {
+  position: relative;
+  z-index: 5;
+  animation: animateRocket linear infinite 1s;
+}
+
+#rocket{
+  height: 55px;
+  width: 36px;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  margin-left: -18px;
+  z-index: 2;
+  #body{
+    border-radius: 50%;
+    width: 36px;
+    height: 60px;
+    background: grey;
+    top: -8px;
+    position: relative;
+    &:before{
+      background: none repeat scroll 0 0 #0f3d71;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: 14px;
+      left: 50%;
+      margin-left: -7px;
+      position: absolute;
+      top: 12px;
+      width: 14px;
+    }
+  }
+}
+
+#nose,
+#nose:before,
+#nose:after {
+  width:  1.2em;
+  height: 1.2em;
+  position: relative;
+  background: grey;
+  border-top-right-radius: 50%;
+}
+#nose:before,
+#nose:after {
+  content: '';
+  position: absolute;
+}
+
+#nose {
+  transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+  position: relative;
+  left: 50%;
+  top: 5px;
+  margin-left: -0.6em;
+}
+#nose:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+#nose:after {
+  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.tail{
+  left: 24px;
+  position: relative;
+  top: 55px;
+  transform: scaleX(0.2) scaleY(2);
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+}
+
+.tail span{
+  display: inline-block;
+  height: 8.66em;
+  overflow: hidden;
+  transform: rotate(60deg) skewX(30deg);
+  width: 10em;
+}
+
+.tail span:before {
+  display: block;
+  background: linear-gradient(to bottom, rgba(159, 195, 25, 1) 0%, rgba(32, 102, 198, 1) 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  content: '';
+  width: inherit; height: 50%;
+  transform: skewX(-30deg) rotate(-60deg) translate(-1.25em);
+}
+
+#wing1 {
+    border-color: transparent transparent #c62020;
+    border-style: solid;
+    border-width: 0 20px 20px;
+    height: 0;
+    left: 167px;
+    position: absolute;
+    top: 35px;
+    transform: skewX(25deg);
+    width: 0;
+    z-index: 1;
+}
+
+#wing2 {
+    border-color: transparent transparent #c62020;
+    border-style: solid;
+    border-width: 0 20px 20px;
+    height: 0;
+    left: 193px;
+    position: absolute;
+    top: 35px;
+    transform: skewX(-25deg);
+    width: 0;
+    z-index: 1;
+}
+
+#shadow {
+    background: radial-gradient(ellipse at center center , #000000 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 transparent;
+    border-radius: 50%;
+    height: 20px;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: -20px;
+    opacity: 0.35;
+    position: absolute;
+    top: 100%;
+    width: 160px;
+}
+
+/***** ANIMATE *****/
+
+@keyframes borderSpin{
+  0%    {transform: rotate(0deg);}
+  100%  {transform: rotate(-360deg);}
+}
+
+@keyframes circleRotate1{
+  0%    {transform: rotate(35deg);}
+  100%  {transform: rotate(-325deg);}
+}
+
+@keyframes circleRotate2{
+  0%    {transform: rotate(0deg);}
+  100%  {transform: rotate(360deg);}
+}
+
+@keyframes spinLoading{
+  0%    {transform: rotate(0deg);}
+  100%  {transform: rotate(360deg);}
+}
+
+@keyframes animateRocket{
+  0%  {transform: rotate(0deg) ;}
+  25%  {transform: rotate(2deg);}
+  50%  {transform: rotate(0deg);}
+  75%  {transform: rotate(-2deg);}
+  100%  {transform: rotate(0deg);}
+}
+
+@keyframes moveStar{
+  0%    {}
+  100%  {transform: translateY(200px);}
+}
