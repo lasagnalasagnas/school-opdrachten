@@ -1,0 +1,48 @@
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  background-image: url("../welnesswebsite/images/file.svg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+/* Style for the rounded rectangle button in the hero image */
+.hero-button {
+  display: inline-block;
+  margin-top: 20px; /* Add spacing between the <p> and the button */
+  background-color: black; /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 20px; /* Makes the edges rounded */
+  padding: 10px 20px; /* Add padding for better text fit */
+  font-size: 16px; /* Adjust font size */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.hero-button:hover {
+  background-color: darkgray; /* Hover effect */
+}
